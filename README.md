@@ -5,7 +5,7 @@ L’objectif du projet est de créer un système d'analyse des logs d'un serveur
 
 <h2> Architechture : </h2>
 
-![alt text](https://github.com/771999489/Datastream/blob/main/architecture.jpg)
+![alt text](https://github.com/771999489/Datastream/blob/main/mes%20images/architecture.jpg)
 
 
 
