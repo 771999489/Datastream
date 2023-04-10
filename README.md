@@ -20,8 +20,10 @@ L’objectif du projet est de créer un système d'analyse des logs d'un serveur
 <h2>Travail fait : </h2>
 <h2>1.	Environnement virtuel</h2>
 J’ai travaillé dans un environnement virtuel qui est un mécanisme qui permet de séparer les dépendances requises par différents projets en créant des environnements virtuels qui sont isolés entre eux.</p>
-J’ai créé l’instance de RABBITMQ avec l'aide de docker-composer et le fichie. .env nous allons exécuter la commande suivante</p>
-Le script .env :</p>
+J’ai créé l’instance de RABBITMQ avec l'aide de docker-composer et le fichie. .env nous allons exécuter la commande suivante: __docker-compose --env-file .env -f docker-compose.yml -p data-stream up -d__</p>
+Le script .env :</P>
+
+![Cover](https://github.com/771999489/Datastream/blob/main/mes%20images/env..JPG)</p>
 Définit des variables d'environnement pour différents identifiants et mots de passe de bases de données et d'hôtes.</p>
  	RABBIT_USER: Définit le nom d'utilisateur du serveur RabbitMQ (un serveur de messagerie open-source). </p>
  	RABBIT_PASSWORD: Définit le mot de passe associé à l'utilisateur RabbitMQ.</p>
@@ -72,13 +74,19 @@ Ensuite, les différentes fonctions sont appelées pour extraire les information
  	__get_size_kb()__ et get_size_mb() convertissent la taille de la réponse en kilo-octets et mégaoctets respectivement.</p>
 Enfin, une instance de la classe __CleanLog__ est créée pour stocker les données nettoyées. Les données sont stockées dans une base de données à l'aide de SQLAlchemy, ce qui permet une analyse facile et une visualisation des données à l'aide d'outils tels que pandas ou matplotlib.</p>
 ==> main.py</p>
+
+![Cover](https://github.com/771999489/Datastream/blob/main/mes%20images/main.JPG)
 Là j’ai utilisé SQLAlchemy pour créer une instance de moteur de base de données MySQL, ainsi qu'une session pour interagir avec la base de données.</p> J’ai aussi utilisé la bibliothèque __dotenv__ pour charger les variables d'environnement à partir d'un fichier __.env.__</p>
 La fonction __CreateEngine()__ utilise les informations de connexion stockées dans le fichier __.env__ pour créer une URL de connexion à la base de données MySQL.</p> Elle crée ensuite une instance de moteur de base de données en utilisant l'URL de connexion, se connecte au moteur de base de données et crée toutes les tables définies dans le __modèle SQLAlchemy.__</p>
 Enfin, elle crée une instance de session en utilisant le moteur de base de données et retourne cette instance de session. Cela permet à l'utilisateur d'interagir avec la base de données en utilisant l'API ORM de SQLAlchemy.</p>
 ==> models.py</p>
+
+
 Le code ci-dessus définit deux classes SQLAlchemy - __CleanLog et RowLog__ </p>
  	1. La classe CleanLog est utilisée pour stocker des informations de journal propres et structurées</p>
+  ![Cover](https://github.com/771999489/Datastream/blob/main/mes%20images/clean_log.JPG)
   2. 	La classe RowLog est utilisée pour stocker des journaux bruts tels qu'ils sont reçus. Chaque classe hérite de la classe Base qui est importée depuis SQLAlchemy.</p>
+   ![Cover](https://github.com/771999489/Datastream/blob/main/mes%20images/raw_log.JPG)
 __Les colonnes de la table CleanLog incluent un identifiant de ligne (id), une horodatage (timestamp), des informations sur la date et l'heure (year, month, day, day_of_week et time), des informations sur l'adresse IP (ip), des informations sur le pays et la ville (country et city), des informations sur la session utilisateur (session et user), des informations sur les demandes REST (is_email, email_domain, rest_method, url, schema, host, rest_session), des informations sur la réponse REST (status, status_verbose), et des informations sur la taille de la réponse (size_bytes, size_kilo_bytes, size_mega_bytes).__</p>
 
 __La table RowLog contient également un identifiant de ligne (id), un horodatage (timestamp) et une colonne log qui contient le journal brut__</p>
