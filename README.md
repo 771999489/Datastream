@@ -7,8 +7,10 @@ L’objectif du projet est de créer un système d'analyse des logs d'un serveur
 
 ![alt text](https://github.com/771999489/Datastream/blob/main/architecture.jpg)
 
+
+
 <h3> En résumé : </h3>
-•	Le logs-producer : lit le fichier de logs web-server-nginx.log, puis publie chaque ligne de log dans un échange de type topic en utilisant une clé de routage "logs".     L'échange est lié à deux files d'attente, queue-data-lake et queue-data-clean. Chaque file d'attente est consommée par un consumer différent. </n>
-•	Le data-lake-consumer se connecte à une base de données MySQL et insère chaque ligne de log en tant qu'un enregistrement dans la table raw-log.  </n>
+•	Le logs-producer : lit le fichier de logs web-server-nginx.log, puis publie chaque ligne de log dans un échange de type topic en utilisant une clé de routage "logs".     L'échange est lié à deux files d'attente, queue-data-lake et queue-data-clean. Chaque file d'attente est consommée par un consumer différent. </p>
+•	Le data-lake-consumer se connecte à une base de données MySQL et insère chaque ligne de log en tant qu'un enregistrement dans la table raw-log.  </p>
 •	Le data-clean-consumer nettoie et formate chaque ligne de log, puis l'insère en tant qu'un enregistrement dans la table clean-log.
 
