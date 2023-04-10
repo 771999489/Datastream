@@ -6,3 +6,4 @@ L’objectif du projet est de créer un système d'analyse des logs d'un serveur
 <h3> Architechture : </h3>
 ![alt text](https://github.com/771999489/Datastream/blob/main/architecture.PNG)
 
+![alt text](https://github.com/771999489/mysql-powerBI/blob/main/images/architechture%20du%20projet.JPG)
